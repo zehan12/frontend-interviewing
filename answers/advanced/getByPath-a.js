@@ -10,3 +10,18 @@ function getByPath ([first, ...rest], obj)  {
       return getByPath(rest, obj[first]);
     }
   }
+
+var paths = ([...args],obj) => {
+    if ( args.length === 0 || !args[0] || !obj[args[0] ) return undefined;
+    let count = 0;
+    const recursion = (item,passObj) => {
+    for (const key in passObj) {
+        if ( key === item) {
+                count += 1;
+            if ( count == args.length ) return passObj[key];
+                return recursion(args[i],passObj[key]);
+            }
+        }
+    }
+    return recursion(args[i],obj);
+}
